@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/workspace/RoboND-Go_Chase_It/catkin_ws/install/setup.sh
