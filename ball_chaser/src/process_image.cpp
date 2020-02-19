@@ -35,25 +35,29 @@ void process_image_callback(const sensor_msgs::Image img)
         number_bins += 1;
 
     // angular velocity per bin (the farer the bin, the faster we turn)
-    static const float angular_vel_per_bin = 0.1;
+    static const float angular_vel_per_bin = 0.5;
 
     // vector for bins to count number of white pixels in
     std::vector<int> bin(number_bins, 0);
 
     // number of coloumns per bin to insert pixel 
-    int col_per_bin = img.step / number_bins;
+    int col_per_bin = img.width / number_bins;
 
-    // loop through all pixels and sort them into the col vector
-    for(int px = 0; px < img.height * img.step; ++px) {
+    // image has rgb8 encoding, so check all channels for white ball 
+    for(int row = 0; row < img.height; ++row) {
+        for(int col = 0; col < img.width; ++col) {
 
-        // only insert pixels above threshold into the according bin
-        if(img.data[px] >= white_pixel) {
+            // check for white pixel
+            if(     (img.data[row * img.step + col * 3 + 0] == white_pixel)      // R
+                &&  (img.data[row * img.step + col * 3 + 1] == white_pixel)      // G
+                &&  (img.data[row * img.step + col * 3 + 2] == white_pixel)) {   // B 
 
-            // increment the corresponding bin
-            auto bin_index = (px % img.step) / col_per_bin;
+                // increment the corresponding bin
+                auto bin_index = col / col_per_bin;
 
-            if(bin_index < bin.size())
-                bin.at(bin_index)++;
+                if(bin_index < bin.size())
+                    bin.at(bin_index)++;
+            }
         }
     }
 
@@ -66,8 +70,7 @@ void process_image_callback(const sensor_msgs::Image img)
     } else {
         // keep the linear speed low and the angular speed based on the bin
         int factor = std::distance(bin.begin(), max_bin) - (number_bins / 2);
-        ROS_INFO("Selected bin %ld factor %d", std::distance(bin.begin(), max_bin), factor);
-        drive_robot(0.1F, -factor * angular_vel_per_bin);
+        drive_robot(0.5F, -factor * angular_vel_per_bin);
     }
 }
 
