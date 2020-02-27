@@ -15,18 +15,19 @@
 		<param name="odom_alpha3" value="0.05"/>
 		<param name="odom_alpha4" value="0.05"/>
 		
-		<param name="initial_pose_x" value="0"/>
-		<param name="initial_pose_y" value="0"/>
+		<param name="initial_pose_x" value="-2.6"/>
+		<param name="initial_pose_y" value="2.6"/>
 
 		<!-- parameter tuning -->
 		<param name="min_particles" value="50"/>
 		<param name="max_particles" value="200"/>
 		<param name="update_min_a" value="0.1"/>
-		<param name="update_min_d" value="0.25"/>
+		<param name="update_min_d" value="0.05"/>
 
 		<param name="laser_max_beams" value="20"/>
 		<param name="laser_z_rand" value="0.05"/>
 		<param name="laser_z_hit" value="0.95"/>
+		<param name="laser_max_range" value="-1"/>
 	</node>
 
 	<!-- move base -->
