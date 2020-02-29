@@ -7,11 +7,12 @@ Panels:
         - /Global Options1
         - /Status1
         - /Map1
-        - /Map1/Status1
         - /PoseArray1
         - /LaserScan1
         - /Pose1
         - /Path1
+        - /Path2
+        - /Path3
       Splitter Ratio: 0.5
     Tree Height: 640
   - Class: rviz/Selection
@@ -175,16 +176,16 @@ Visualization Manager:
     - Alpha: 1
       Class: rviz/Polygon
       Color: 25; 255; 0
-      Enabled: true
+      Enabled: false
       Name: Polygon
       Topic: /move_base/local_costmap/footprint
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
       Color: 25; 255; 0
-      Enabled: true
+      Enabled: false
       Head Diameter: 0.300000012
       Head Length: 0.200000003
       Length: 0.300000012
@@ -202,11 +203,11 @@ Visualization Manager:
       Shaft Length: 0.100000001
       Topic: /move_base/TrajectoryPlannerROS/local_plan
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
-      Color: 25; 255; 0
+      Color: 0; 0; 255
       Enabled: true
       Head Diameter: 0.300000012
       Head Length: 0.200000003
@@ -229,8 +230,8 @@ Visualization Manager:
     - Alpha: 1
       Buffer Length: 1
       Class: rviz/Path
-      Color: 25; 255; 0
-      Enabled: true
+      Color: 0; 0; 255
+      Enabled: false
       Head Diameter: 0.300000012
       Head Length: 0.200000003
       Length: 0.300000012
@@ -248,7 +249,7 @@ Visualization Manager:
       Shaft Length: 0.100000001
       Topic: /move_base/TrajectoryPlannerROS/global_plan
       Unreliable: false
-      Value: true
+      Value: false
     - Alpha: 0.699999988
       Class: rviz/Map
       Color Scheme: map
@@ -284,7 +285,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 17.8013916
+      Distance: 11.5831738
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
@@ -320,5 +321,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1920
-  X: 0
-  Y: 0
+  X: -1
+  Y: -26

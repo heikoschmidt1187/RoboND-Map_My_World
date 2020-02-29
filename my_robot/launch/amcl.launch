@@ -10,16 +10,9 @@
 		<param name="base_frame_id" value="robot_footprint"/>
 		<param name="global_frame_id" value="map"/>
 
-<!--
-		<param name="odom_alpha1" value="0.05"/>
-		<param name="odom_alpha2" value="0.05"/>
-		<param name="odom_alpha3" value="0.05"/>
-		<param name="odom_alpha4" value="0.05"/>
--->
-		
+		<!-- initial pose with increased yaw uncertainty -->
 		<param name="initial_pose_x" value="0"/>
 		<param name="initial_pose_y" value="0"/>
-		<!--<param name="initial_pose_a" value="-1.5707"/>-->
 		<param name="initial_cov_aa" value="1.570"/>
 
 		<!-- parameter tuning -->
@@ -31,7 +24,6 @@
 		<param name="laser_max_beams" value="20"/>
 		<param name="laser_z_rand" value="0.05"/>
 		<param name="laser_z_hit" value="0.95"/>
-		<!--<param name="laser_min_range" value="0.4"/>-->
 	</node>
 
 	<!-- move base -->
